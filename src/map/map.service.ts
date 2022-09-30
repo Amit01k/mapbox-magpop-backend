@@ -12,20 +12,10 @@ export class MapService {
 
 
 
-  async createParcel(createParcelPointDto: Map): Promise<any> {
-    // const data = {
-    //   // type: 'geometry',
-    //   coordinates: [createParcelPointDto.geometry],
-    //   name: createParcelPointDto.name
-    // }
-    // console.log(data)
-
-
+  async createGeom(createParcelPointDto: Map): Promise<any> {
     const map = this.map.create(createParcelPointDto)
-    //  const map = this.map.create({ name: createParcelPointDto.name, data })
-    // console.log(map)
     await this.map.save(map)
-    // return map
+
   }
 
 
