@@ -17,7 +17,7 @@ export class MapController {
   async createGeom(
     @Body()
     geomData: Map): Promise<Map> {
-    console.log("this is come from map controller", geomData)
+    //console.log("this is come from map controller", geomData)
     return this.mapService.createGeom(geomData)
   }
   @Post()
