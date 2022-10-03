@@ -38,6 +38,6 @@ export class MapService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} map`;
+    return this.map.delete(id);
   }
 }
