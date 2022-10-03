@@ -17,7 +17,7 @@ export class MapController {
   async createGeom(
     @Body()
     geomData: Map): Promise<Map> {
-    console.log("this is come from map controller", geomData)
+    //console.log("this is come from map controller", geomData)
     return this.mapService.createGeom(geomData)
   }
   @Post()
@@ -40,8 +40,9 @@ export class MapController {
     return this.mapService.update(+id, updateMapDto);
   }
 
-  @Delete(':id')
+  @Delete('geom/:id')
   remove(@Param('id') id: string) {
+    console.log("delete api called", id)
     return this.mapService.remove(+id);
   }
 }

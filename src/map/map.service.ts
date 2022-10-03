@@ -8,18 +8,19 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class MapService {
   constructor(@InjectRepository(Map) private readonly map: Repository<Map>) { }
-
-
-
-
-  async createGeom(createParcelPointDto: Map): Promise<any> {
-    const map = this.map.create(createParcelPointDto)
+  async createGeom(geomdatamap: Map): Promise<any> {
+    console.log("this is come from mao service", geomdatamap)
+    let data = {
+      name: geomdatamap.name,
+      desc: geomdatamap.desc,
+      color: geomdatamap.color,
+      geom: geomdatamap.geom.geometry
+    }
+    console.log("This data form from after destructuring", data)
+    const map = this.map.create(data)
     await this.map.save(map)
 
   }
-
-
-
   create(createMapDto: CreateMapDto) {
     return 'This action adds a new map';
   }
@@ -37,6 +38,6 @@ export class MapService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} map`;
+    return this.map.delete(id);
   }
 }
