@@ -6,11 +6,10 @@ import { json } from "stream/consumers";
 
 @Entity({ name: "geodata" })
 export class Map {
-    @PrimaryGeneratedColumn()
-    id: number
+    @PrimaryGeneratedColumn("uuid")
+    id: string
 
-    // @Column({ nullable: true })
-    // type: string;
+    
 
     @Column({ nullable: true })
     name: string
@@ -21,8 +20,7 @@ export class Map {
     @Column({ nullable: true })
     desc: string
 
-    // @Column({ nullable: true, type: "json" })
-    // properties: any
+    
     @Column({
         type: 'geometry',
         //name: 'geom',
@@ -32,8 +30,7 @@ export class Map {
     })
     geom: GeoJSON;
 
-    // @IsOptional()
-    // geometry?: number[][];
+    
 
 
 }

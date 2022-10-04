@@ -37,7 +37,7 @@ export class MapService {
     return `This action updates a #${id} map`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.map.delete(id);
   }
 }

@@ -43,6 +43,6 @@ export class MapController {
   @Delete('geom/:id')
   remove(@Param('id') id: string) {
     console.log("delete api called", id)
-    return this.mapService.remove(+id);
+    return this.mapService.remove(id);
   }
 }
